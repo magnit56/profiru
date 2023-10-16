@@ -15,14 +15,14 @@ $router->post("encode", function(\Symfony\Component\HttpFoundation\Request $requ
         $validation->validate();
         if ($validation->fails()) {
             $response->setStatusCode(403);
-            $response->setContent(json_encode(['error' => 'Ссылка имеет неправильный формат']));
+            $response->setContent(json_encode(['error' => 'Ссылка имеет неправильный формат'], JSON_UNESCAPED_SLASHES));
             return $response;
         }
         $url = $_POST['url'];
         $urls = new \Flintstone\Flintstone('urls', ["dir" => '/var/cache/profiru']);
         $hash = md5($url);
         $urls->set($hash, $url);
-        $response->setContent(json_encode(["url" => "http://localhost:8081/$hash"]));
+        $response->setContent(json_encode(["url" => "http://localhost:8081/$hash"], JSON_UNESCAPED_SLASHES));
         return $response;
     } catch (Exception $exception) {
         //return $exception->getMessage();
