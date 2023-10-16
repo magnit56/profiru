@@ -1,0 +1,16 @@
+{
+    "name": "magnit56/profiru",
+    "require": {
+        "php": "^8.1.2",
+        "izniburak/router": "^2.5",
+        "fire015/flintstone": "^2.3",
+        "rakit/validation": "^1.4"
+    },
+    "authors": [
+        {
+            "name": "Samat Tulegenov",
+            "email": "magnit56@gmail.com"
+        }
+    ],
+    "description": ""
+}

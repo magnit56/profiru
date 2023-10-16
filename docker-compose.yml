@@ -1,0 +1,38 @@
+version: "3.3"
+
+services:
+    nginx:
+        build:
+            context: .
+            dockerfile: docker/Nginx.Dockerfile
+        container_name: nginx
+        ports:
+            - 8081:8081
+            - 8082:8082
+            - 8083:8083
+        volumes:
+            - ./src:/var/www/project
+        networks:
+            - myNetwork
+        depends_on:
+            - backend
+
+    backend:
+        build:
+            context: .
+            dockerfile: docker/Backend.Dockerfile
+        container_name: backend
+        ports:
+            - 8000:8000
+        volumes:
+            - ./src:/var/www/project
+        networks:
+            - myNetwork
+
+#volumes:
+#    dbdata:
+#        driver: local
+
+networks:
+    myNetwork:
+        driver: bridge
