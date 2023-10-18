@@ -9,8 +9,8 @@ return array(
     'Symfony\\Polyfill\\Php80\\' => array($vendorDir . '/symfony/polyfill-php80'),
     'Symfony\\Polyfill\\Mbstring\\' => array($vendorDir . '/symfony/polyfill-mbstring'),
     'Symfony\\Component\\HttpFoundation\\' => array($vendorDir . '/symfony/http-foundation'),
+    'Sqids\\' => array($vendorDir . '/sqids/sqids/src'),
     'Rakit\\Validation\\' => array($vendorDir . '/rakit/validation/src'),
     'Flintstone\\' => array($vendorDir . '/fire015/flintstone/src'),
     'Buki\\Router\\' => array($vendorDir . '/izniburak/router/src'),
-    'App\\' => array($baseDir . '/app'),
 );

@@ -20,12 +20,18 @@ $router->post("encode", function(\Symfony\Component\HttpFoundation\Request $requ
         }
         $url = $_POST['url'];
         $urls = new \Flintstone\Flintstone('urls', ["dir" => '/var/cache/profiru']);
-        $hash = md5($url);
+        $lastIdentifiers = new \Flintstone\Flintstone('identifiers', ["dir" => '/var/cache/profiru']);
+        if (!$lastIdentifiers->get('lastIdentifier')) {
+            $lastIdentifiers->set('lastIdentifier', 1);
+        } else {
+            $lastIdentifiers->set('lastIdentifier', $lastIdentifiers->get('lastIdentifier') + 1);
+        }
+        $sqids = new \Sqids\Sqids();
+        $hash = $sqids->encode([$lastIdentifiers->get('lastIdentifier')]);
         $urls->set($hash, $url);
         $response->setContent(json_encode(["url" => "http://localhost:8081/$hash"], JSON_UNESCAPED_SLASHES));
         return $response;
     } catch (Exception $exception) {
-        //return $exception->getMessage();
         $response->setStatusCode(500);
         return $response;
     }
@@ -38,7 +44,6 @@ $router->get(":any", function ($hash, \Symfony\Component\HttpFoundation\Response
         header("Location: $url");
         exit();
     } catch (Exception $exception) {
-        //return $exception->getMessage();
         $response->setStatusCode(500);
         return $response;
     }

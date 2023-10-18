@@ -18,6 +18,7 @@ class ComposerStaticInit742925c9907635f8cf0bbb07eae40412
             'Symfony\\Polyfill\\Php80\\' => 23,
             'Symfony\\Polyfill\\Mbstring\\' => 26,
             'Symfony\\Component\\HttpFoundation\\' => 33,
+            'Sqids\\' => 6,
         ),
         'R' => 
         array (
@@ -30,10 +31,6 @@ class ComposerStaticInit742925c9907635f8cf0bbb07eae40412
         'B' => 
         array (
             'Buki\\Router\\' => 12,
-        ),
-        'A' => 
-        array (
-            'App\\' => 4,
         ),
     );
 
@@ -50,6 +47,10 @@ class ComposerStaticInit742925c9907635f8cf0bbb07eae40412
         array (
             0 => __DIR__ . '/..' . '/symfony/http-foundation',
         ),
+        'Sqids\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/sqids/sqids/src',
+        ),
         'Rakit\\Validation\\' => 
         array (
             0 => __DIR__ . '/..' . '/rakit/validation/src',
@@ -61,10 +62,6 @@ class ComposerStaticInit742925c9907635f8cf0bbb07eae40412
         'Buki\\Router\\' => 
         array (
             0 => __DIR__ . '/..' . '/izniburak/router/src',
-        ),
-        'App\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/app',
         ),
     );
 

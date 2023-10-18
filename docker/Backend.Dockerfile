@@ -1,5 +1,6 @@
 FROM php:8.2-fpm
 USER root
+RUN docker-php-ext-install bcmath
 RUN mkdir /var/cache/profiru
 RUN chmod -R 777 /var/cache/profiru
 RUN chown -R www-data:www-data /var/cache/profiru
